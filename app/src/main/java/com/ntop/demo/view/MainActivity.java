@@ -26,7 +26,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements Observer {
     private EditText mainInput;
-    private ViewGroup mainLayout;
 
     private ActionHelper actionHelper;
     private TodoStore todoStore;
@@ -42,14 +41,13 @@ public class MainActivity extends AppCompatActivity implements Observer {
     }
 
     private void di() {
-        todoStore = App.getStore();
-        actionHelper = App.getActionHelper();
-        todoRecyclerAdapter = new TodoRecyclerAdapter(App.getActionHelper());
+        todoStore = ((App) getApplicationContext()).getStore();
+        actionHelper = ((App) getApplicationContext()).getActionHelper();
+        todoRecyclerAdapter = new TodoRecyclerAdapter(actionHelper);
 
     }
 
     private void setUpViews() {
-        // mainLayout = ((ViewGroup) findViewById(R.id.main_layout));
         mainInput = (EditText) findViewById(R.id.main_input);
 
         Button mainAdd = (Button) findViewById(R.id.main_add);

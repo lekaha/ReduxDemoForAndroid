@@ -14,8 +14,8 @@ import com.ntop.demo.todo.reducers.TodoReducer;
  * Created by ntop on 16/6/22.
  */
 public class App extends Application {
-    private static TodoStore todoStore;
-    private static ActionHelper actionHelper;
+    private TodoStore todoStore;
+    private ActionHelper actionHelper;
 
     @Override
     public void onCreate() {
@@ -37,11 +37,11 @@ public class App extends Application {
         actionHelper = ActionHelper.newActionHelper(todoStore);
     }
 
-    public static TodoStore getStore() {
+    public TodoStore getStore() {
         return todoStore;
     }
 
-    public static ActionHelper getActionHelper() {
+    public ActionHelper getActionHelper() {
         return actionHelper;
     }
 }
