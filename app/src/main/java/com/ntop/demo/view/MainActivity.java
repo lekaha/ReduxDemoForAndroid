@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -70,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements Observer {
     }
 
     private void addNewTodo() {
-        if (mainInput.getText() != null && mainInput.getText().length() > 0) {
+        if (!TextUtils.isEmpty(mainInput.getText())) {
             actionHelper.addTodo(mainInput.getText().toString());
             mainInput.setText(null);
         }
